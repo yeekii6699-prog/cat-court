@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+﻿# 猫猫法官局
 
-## Getting Started
+猫猫法官局是一间可爱的情侣调停室：记录双方诉求后，喵官会根据情绪参数与贴贴仪式，生成错率百分比、争吵分析、愈合步骤以及暖心话术。前端默认召唤云端大模型，若发生异常则自动切回本地柔软算法。
 
-First, run the development server:
+## 开发与运行
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+访问 <http://localhost:3000> 体验猫猫法庭。若要使用 ESLint：
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 云端判决与共享口令
 
-## Learn More
+部署时可通过环境变量控制：
 
-To learn more about Next.js, take a look at the following resources:
+| 变量 | 说明 |
+| --- | --- |
+| `OPENAI_API_KEY` | **必填**，用于连接大模型。|
+| `OPENAI_MODEL` | 可选，默认 `gpt-4o-mini`。|
+| `NEXT_PUBLIC_COURT_KEY` | 可选，设置后所有用户需输入相同口令才能进入猫猫法庭，实现“同一个 key 共享同一法庭”的想法。|
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+在 `.env.local` 中配置以上变量并重启服务即可生效。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 主要特性
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 情绪笔录：昵称、故事、氛围、猫薄荷供给、道歉雷达。
+- 仪式面板：可自定义停战动作并量化 calm score。
+- 猫猫判决卡：显示错率、猫官评语及来源（云端或离线）。
+- 猫猫吵架分析：大模型返回的关键词、洞察、愈合步骤、暖心话术与下一次约定。
+- 共享口令架构：输入同一 key 即可把多人引导到同一个“猫猫法庭房间”。
